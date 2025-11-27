@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>Stylized Quick Ball-inspired Icon</title>
+  <desc>A blue ball with intersecting yellow zig-zag motifs, a black center band, and a white button, inspired by the Quick Ball aesthetic.</desc>
+
+  <defs>
+    <!-- Soft blue gradient for depth -->
+    <radialGradient id="blueGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="70%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+    <!-- Subtle highlight stroke -->
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.75)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer ball outline -->
+  <circle cx="64" cy="64" r="52" fill="none" stroke="#0f172a" stroke-width="6"/>
+
+  <!-- Top half (blue) -->
+  <path d="M64,12
+           A52,52 0 0 1 116,64
+           L12,64
+           A52,52 0 0 1 64,12 Z"
+        fill="url(#blueGrad)"/>
+
+  <!-- Bottom half (blue) -->
+  <path d="M12,64
+           L116,64
+           A52,52 0 0 1 64,116
+           A52,52 0 0 1 12,64 Z"
+        fill="url(#blueGrad)"/>
+
+  <!-- Intersecting yellow zig-zag motifs (original shapes) -->
+  <!-- Left-to-right diagonal -->
+  <path d="M18,58
+           L36,34
+           L52,38
+           L40,56
+           L60,60
+           L46,78
+           L30,74
+           L42,100
+           Z"
+        fill="#facc15" opacity="0.95"/>
+
+  <!-- Right-to-left diagonal -->
+  <path d="M110,58
+           L92,34
+           L76,38
+           L88,56
+           L68,60
+           L82,78
+           L98,74
+           L86,100
+           Z"
+        fill="#facc15" opacity="0.95"/>
+
+  <!-- Center band -->
+  <rect x="12" y="58" width="104" height="12" fill="#0f172a"/>
+
+  <!-- Center button outer -->
+  <circle cx="64" cy="64" r="16" fill="#ffffff" stroke="#0f172a" stroke-width="6"/>
+
+  <!-- Center button inner -->
+  <circle cx="64" cy="64" r="7" fill="#e5e7eb"/>
+
+  <!-- Subtle specular highlight -->
+  <path d="M32,36 C44,24 62,20 80,26"
+        fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Soft shadow to ground the icon -->
+  <ellipse cx="64" cy="122" rx="28" ry="4" fill="rgba(0,0,0,0.15)"/>
+</svg>
