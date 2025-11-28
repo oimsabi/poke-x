@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { sum } from './sum.tsx';
+import { sum } from './sum.ts';
 
 describe('sum function', () => {
   // Two numeric strings

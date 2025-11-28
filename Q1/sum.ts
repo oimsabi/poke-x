@@ -20,7 +20,7 @@ if (isMainModule) {
   
   // check if the number of arguments is 2
   if (args.length !== 2) {
-    console.error("Usage: node sum.tsx <number1> <number2>");
+    console.error("Usage: node sum.ts <number1> <number2>");
     process.exit(1);
   }
 
