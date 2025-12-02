@@ -107,6 +107,7 @@ export interface NamedResource {
   export interface PokemonListItem {
     name: string;
     url: string;
+    primaryType: string;
   }
   
   export interface PokemonListResponse {
@@ -114,4 +115,21 @@ export interface NamedResource {
     next: string | null;
     previous: string | null;
     results: PokemonListItem[];
+  }
+
+  // Flavor text entry structure
+  export interface FlavorTextEntry {
+    flavor_text: string;
+    language: NamedResource;
+    version: NamedResource;
+  }
+
+  // Pokemon Species interface - for flavor text and other species data
+  export interface PokemonSpecies {
+    id: number;
+    name: string;
+    flavor_text_entries: FlavorTextEntry[];
+    
+    // Add other species fields
+    [key: string]: any; // Allow for other fields we might not need
   }

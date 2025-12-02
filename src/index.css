@@ -7,9 +7,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark;
+  color: rgba(243, 244, 246, 1); /* text-gray-100 */
+  background-color: rgb(3, 7, 18); /* bg-gray-950 */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,5 +26,6 @@
 body {
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgb(3, 7, 18); /* bg-gray-950 */
 }
 

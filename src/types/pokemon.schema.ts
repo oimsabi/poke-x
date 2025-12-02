@@ -118,7 +118,22 @@ export const PokemonListResponseSchema = z.object({
   results: z.array(PokemonListItemSchema),
 });
 
+// Flavor text entry schema
+export const FlavorTextEntrySchema = z.object({
+  flavor_text: z.string(),
+  language: NamedResourceSchema,
+  version: NamedResourceSchema,
+});
+
+// Pokemon Species schema - focused on flavor_text_entries
+export const PokemonSpeciesSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  flavor_text_entries: z.array(FlavorTextEntrySchema),
+}).passthrough(); // Allow additional fields we don't validate
+
 // Export inferred types from schemas (optional - can use original types)
 export type PokemonFromSchema = z.infer<typeof PokemonSchema>;
 export type PokemonListItemFromSchema = z.infer<typeof PokemonListItemSchema>;
 export type PokemonListResponseFromSchema = z.infer<typeof PokemonListResponseSchema>;
+export type PokemonSpeciesFromSchema = z.infer<typeof PokemonSpeciesSchema>;
