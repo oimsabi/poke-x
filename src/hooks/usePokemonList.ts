@@ -41,10 +41,10 @@ export const usePokemonList = (
             const pokemon = await pokemonApi.getByName(item.name);
             return {
               ...item,
-              primaryType: pokemon.types[0]?.type.name || 'normal'
+              types: pokemon.types
             };
           } catch {
-            return { ...item, primaryType: 'normal' };
+            return { ...item };
           }
         })
       );
@@ -67,7 +67,7 @@ export const usePokemonList = (
     results,
     loading,
     error,
-    primaryTypes: results.map((item) => item.primary_type),
+    primaryTypes: results.map((item) => item.primaryType).filter((type): type is string => type !== undefined),
     total: data?.count ?? 0,
     next: data?.next ?? null,
     previous: data?.previous ?? null,

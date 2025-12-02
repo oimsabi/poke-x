@@ -62,7 +62,7 @@ export const PokemonSpritesSchema = z.object({
 // Cries structure
 export const PokemonCriesSchema = z.object({
   latest: z.string(),
-  legacy: z.string(),
+  legacy: z.string().nullable(),
 });
 
 // Form structure

@@ -60,7 +60,7 @@ export interface NamedResource {
   // Cries structure
   export interface PokemonCries {
     latest: string;
-    legacy: string;
+    legacy: string | null;
   }
   
   // Form structure
@@ -107,7 +107,7 @@ export interface NamedResource {
   export interface PokemonListItem {
     name: string;
     url: string;
-    primaryType: string;
+    types: PokemonType[];
   }
   
   export interface PokemonListResponse {
