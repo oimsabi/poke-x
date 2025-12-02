@@ -6,26 +6,26 @@ __________________________________________________
 Install and run:
 
 # clone this repo
-git clone https://github.com/oimsabi/poke-x.git
+`git clone https://github.com/oimsabi/poke-x.git`
 
-cd poke-x
+`cd poke-x`
 
-- `poke-x/Q1/` – Node/TypeScript implementation and tests for Question 1
+- 'poke-x/Q1/' – Node/TypeScript implementation and tests for Question 1
 - 
-cd Q1                     # to question 1 files
+`cd Q1`                     # to question 1 files
 
 # run the CLI
-node sum.ts 12 2          # 12 + 2 = 14
+`node sum.ts 12 2`          # 12 + 2 = 14
 
-node --test sum.test.ts   # run test units
+`node --test sum.test.ts`   # run test units
 __________________________________________________
 
-- `poke-x/` – main React + Vite app (Question 2)
+- 'poke-x/' – main React + Vite app (Question 2)
 # at root project folder
 # run the React app (Question 2)
-npm install         # if not already run in this folder
+`npm install`         # if not already run in this folder
 
-npm run dev         # Vite dev server on http://localhost:5173 
+`npm run dev`         # Vite dev server on http://localhost:5173 
 
 
 ##################################################
