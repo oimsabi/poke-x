@@ -59,7 +59,7 @@ export interface NamedResource {
   
   // Cries structure
   export interface PokemonCries {
-    latest: string;
+    latest: string | null;
     legacy: string | null;
   }
   
@@ -80,7 +80,7 @@ export interface NamedResource {
     // Basic info
     id: number;
     name: string;
-    base_experience: number;
+    base_experience: number | null;
     height: number;        // in decimeters (divide by 10 for meters)
     weight: number;        // in hectograms (divide by 10 for kg)
     order: number;
@@ -105,9 +105,9 @@ export interface NamedResource {
   
   // For Pokemon list endpoint
   export interface PokemonListItem {
-    id: number;
     name: string;
     url: string;
+    id?: number;
     types?: PokemonType[];
   }
   
@@ -133,4 +133,17 @@ export interface NamedResource {
     
     // Add other species fields
     [key: string]: any; // Allow for other fields we might not need
+  }
+
+  // Cached Pokemon interface - for Pokemon cache management
+  export interface CachedPokemon {
+    pokemon: Pokemon;
+    loaded: boolean;
+  }
+
+  // Carousel configuration interface
+  export interface CarouselConfig {
+    batchSize: number;
+    prefetchRange: number;
+    autoPlayInterval: number;
   }

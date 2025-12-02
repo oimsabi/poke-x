@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { getTypeColorClasses } from '../../../utils/typeColors';
+import { formatPokemonName, extractPokemonId, getPokemonArtworkUrl } from '../../../utils/format';
+import { cn } from '../../../utils/cn';
+import { themeClasses } from '../../../styles/theme';
 import type { PokemonListItem } from '../../../types/pokemon';
+import poke_ball_default from '../../../../public/assets/poke_ball_default.svg';
 
 interface PokemonTableProps {
   results: PokemonListItem[];
@@ -8,49 +12,49 @@ interface PokemonTableProps {
 
 export const PokemonTable = ({ results }: PokemonTableProps) => {
   return (
-    <div className="overflow-x-auto rounded-lg border border-gray-800 dark:border-gray-800 border-gray-200 dark:bg-gray-900/60 bg-white shadow-sm">
-      <table className="min-w-full divide-y divide-gray-800 dark:divide-gray-800 divide-gray-100">
-        <thead className="dark:bg-gray-900/80 bg-white">
+    <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 shadow-sm">
+      <table className="min-w-full divide-y divide-gray-100 dark:divide-gray-800">
+        <thead className="bg-white dark:bg-gray-900/80">
           <tr>
-            <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 dark:text-gray-400 text-gray-700 uppercase tracking-wider">
+            <th className={cn('px-4 py-3 text-left text-xs font-medium uppercase tracking-wider', themeClasses.text.secondary)}>
               
             </th>
-            <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 dark:text-gray-400 text-gray-700 uppercase tracking-wider">
+            <th className={cn('px-4 py-3 text-left text-xs font-medium uppercase tracking-wider', themeClasses.text.secondary)}>
               Name
             </th>
-            <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 dark:text-gray-400 text-gray-700 uppercase tracking-wider">
+            <th className={cn('px-4 py-3 text-left text-xs font-medium uppercase tracking-wider', themeClasses.text.secondary)}>
               Types
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-800 dark:divide-gray-800 divide-gray-100">
+        <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
           {results.map((item) => {
-            const idMatch = item.url.match(/\/pokemon\/(\d+)/);
-            const id = idMatch ? idMatch[1] : undefined;
-            const displayName = item.name.charAt(0).toUpperCase() + item.name.slice(1);
-            const artworkUrl = id
-              ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
-              : undefined;
+            const id = extractPokemonId(item.url);
+            const displayName = formatPokemonName(item.name);
+            const artworkUrl = id ? getPokemonArtworkUrl(id) : undefined;
 
             return (
-              <tr key={item.name} className="hover:bg-gray-800/70 dark:hover:bg-gray-800/70 hover:bg-yellow-100/70">
-                <td className="px-4 py-3 text-sm text-gray-300 dark:text-gray-300 text-gray-800">
+              <tr key={item.name} className="hover:bg-yellow-100/70 dark:hover:bg-gray-800/70">
+                <td className={cn('px-4 py-3 text-sm', themeClasses.text.primary)}>
                   {artworkUrl && (
                     <img
                       src={artworkUrl}
                       alt={displayName}
+                      onError={(e) => {
+                        e.currentTarget.src = poke_ball_default;
+                      }}
                       className="w-10 h-10 object-contain transition-transform duration-300 ease-in-out hover:scale-110 cursor-pointer"
                       loading="lazy"
                     />
                   )}
                 </td>
                 
-                <td className="px-4 py-3 text-sm font-medium text-blue-400 dark:text-blue-400 text-blue-600">
+                <td className="px-4 py-3 text-sm font-medium text-blue-600 dark:text-blue-400">
                   <Link to={`/pokemon/${id}`} className="hover:text-blue-700">
                     {displayName} #{id}
                   </Link>
                 </td>
-                <td className="px-4 py-3 text-sm text-gray-300 dark:text-gray-300 text-gray-800">
+                <td className={cn('px-4 py-3 text-sm', themeClasses.text.primary)}>
                   {item.types && item.types.length > 0 && (
                     <div className="flex flex-wrap gap-1">
                       {item.types.map((type) => {
@@ -58,9 +62,13 @@ export const PokemonTable = ({ results }: PokemonTableProps) => {
                         return (
                           <span
                             key={type.type.name}
-                            className={`px-2 py-0.5 rounded-full text-xs font-semibold ${colors.bg} ${colors.text}`}
+                            className={cn(
+                              'px-2 py-0.5 rounded-full text-xs font-semibold',
+                              colors.bg,
+                              colors.text
+                            )}
                           >
-                            {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+                            {formatPokemonName(type.type.name)}
                           </span>
                         );
                       })}

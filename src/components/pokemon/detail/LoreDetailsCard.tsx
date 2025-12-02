@@ -1,4 +1,6 @@
 import type { PokemonSpecies } from '../../../types/pokemon';
+import { cn } from '../../../utils/cn';
+import { themeClasses } from '../../../styles/theme';
 
 interface LoreDetailsCardProps {
   species: PokemonSpecies | null;
@@ -7,9 +9,13 @@ interface LoreDetailsCardProps {
 export const LoreDetailsCard = ({ species }: LoreDetailsCardProps) => {
   if (!species) {
     return (
-      <div className="bg-gray-900/70 rounded-lg p-4 mb-4 shadow-lg">
-        <h2 className="text-xl font-bold text-gray-100 mb-4">Description</h2>
-        <p className="text-gray-400 italic">Loading description...</p>
+      <div className={cn(themeClasses.card, 'rounded-lg p-4 mb-4 shadow-lg bg-gray-900/70')}>
+        <h2 className={cn('text-xl font-bold mb-4', themeClasses.text.primary)}>
+          Description
+        </h2>
+        <p className={cn('italic', themeClasses.text.secondary)}>
+          Loading description...
+        </p>
       </div>
     );
   }
@@ -30,9 +36,11 @@ export const LoreDetailsCard = ({ species }: LoreDetailsCardProps) => {
     : 'No description available.';
 
   return (
-    <div className="bg-gray-900/70 rounded-lg p-4 mb-4 shadow-lg">
-      <h2 className="text-xl font-bold text-gray-100 mb-4">Description</h2>
-      <p className="text-gray-300 leading-relaxed italic">
+    <div className={cn(themeClasses.card, 'rounded-lg p-4 mb-4 shadow-lg bg-gray-900/70')}>
+      <h2 className={cn('text-xl font-bold mb-4', themeClasses.text.primary)}>
+        Description
+      </h2>
+      <p className={cn('leading-relaxed italic', themeClasses.text.secondary)}>
         "{cleanFlavorText}"
       </p>
     </div>

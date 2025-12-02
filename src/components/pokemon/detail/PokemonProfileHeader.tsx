@@ -1,4 +1,8 @@
-import type { Pokemon } from '../../types/pokemon';
+import type { Pokemon } from '../../../types/pokemon';
+import { formatPokemonName } from '../../../utils/format';
+import { cn } from '../../../utils/cn';
+import { themeClasses } from '../../../styles/theme';
+import poke_ball_default from '../../../../public/assets/poke_ball_default.svg';
 
 interface PokemonProfileHeaderProps {
   pokemon: Pokemon;
@@ -10,8 +14,7 @@ export const PokemonProfileHeader = ({ pokemon }: PokemonProfileHeaderProps) => 
     || pokemon.sprites.front_default 
     || '';
 
-  // Capitalize first letter of name
-  const displayName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  const displayName = formatPokemonName(pokemon.name);
 
   return (
     <div className="flex flex-col items-center mb-6">
@@ -19,13 +22,16 @@ export const PokemonProfileHeader = ({ pokemon }: PokemonProfileHeaderProps) => 
         <img 
           src={imageUrl} 
           alt={displayName}
+          onError={(e) => {
+            e.currentTarget.src = poke_ball_default;
+          }}
           className="w-full h-auto object-contain"
         />
       </div>
-      <h1 className="text-4xl font-bold text-gray-100 mb-2 text-gray-900 dark:text-gray-100">
+      <h1 className={cn('text-4xl font-bold mb-2', themeClasses.text.primary)}>
         {displayName}
       </h1>
-      <p className="text-gray-400 text-lg">
+      <p className={cn('text-lg', themeClasses.text.secondary)}>
         #{String(pokemon.id).padStart(3, '0')}
       </p>
     </div>

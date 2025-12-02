@@ -61,7 +61,7 @@ export const PokemonSpritesSchema = z.object({
 
 // Cries structure
 export const PokemonCriesSchema = z.object({
-  latest: z.string(),
+  latest: z.string().nullable(),
   legacy: z.string().nullable(),
 });
 
@@ -82,7 +82,7 @@ export const PokemonSchema = z.object({
   // Basic info
   id: z.number(),
   name: z.string(),
-  base_experience: z.number(),
+  base_experience: z.number().nullable(),
   height: z.number(),        // in decimeters (divide by 10 for meters)
   weight: z.number(),        // in hectograms (divide by 10 for kg)
   order: z.number(),
