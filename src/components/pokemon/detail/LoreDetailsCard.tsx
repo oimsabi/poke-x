@@ -1,4 +1,4 @@
-import type { PokemonSpecies } from '../types/pokemon';
+import type { PokemonSpecies } from '../../../types/pokemon';
 
 interface LoreDetailsCardProps {
   species: PokemonSpecies | null;

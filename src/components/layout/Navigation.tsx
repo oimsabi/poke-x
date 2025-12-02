@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 
 export const Navigation = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export const Navigation = () => {
             onClick={() => navigate('/')}
             className="cursor-pointer flex items-center gap-2"
           >
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-500 dark:to-pink-500 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-white-600 to-yellow-600 dark:from-blue-400 dark:via-white-500 dark:to-yellow-500 bg-clip-text text-transparent">
               Poke X
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-sm hidden sm:inline">Explore • Experience • Expert</p>
@@ -61,13 +61,13 @@ export const Navigation = () => {
             >
               {theme === 'dark' ? (
                 <img 
-                  src="/image/day.png" 
+                  src="/image/night.png" 
                   alt="Switch to light mode" 
                   className="w-6 h-6 rounded-full"
                 />
               ) : (
                 <img 
-                  src="/image/night.png" 
+                  src="/image/day.png" 
                   alt="Switch to dark mode" 
                   className="w-6 h-6 rounded-full"
                 />

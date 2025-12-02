@@ -1,4 +1,4 @@
-import type { PokemonStat } from '../types/pokemon';
+import type { PokemonStat } from '../../../types/pokemon';
 
 interface BaseStatsBlockProps {
   stats: PokemonStat[];

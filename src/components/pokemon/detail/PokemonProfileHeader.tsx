@@ -1,4 +1,4 @@
-import type { Pokemon } from '../types/pokemon';
+import type { Pokemon } from '../../types/pokemon';
 
 interface PokemonProfileHeaderProps {
   pokemon: Pokemon;
@@ -22,7 +22,7 @@ export const PokemonProfileHeader = ({ pokemon }: PokemonProfileHeaderProps) => 
           className="w-full h-auto object-contain"
         />
       </div>
-      <h1 className="text-4xl font-bold text-gray-100 mb-2">
+      <h1 className="text-4xl font-bold text-gray-100 mb-2 text-gray-900 dark:text-gray-100">
         {displayName}
       </h1>
       <p className="text-gray-400 text-lg">

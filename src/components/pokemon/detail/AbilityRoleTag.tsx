@@ -1,4 +1,4 @@
-import type { PokemonAbility } from '../types/pokemon';
+import type { PokemonAbility } from '../../../types/pokemon';
 
 interface AbilityRoleTagProps {
   abilities: PokemonAbility[];

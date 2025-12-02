@@ -1,11 +1,11 @@
 // This component displays a single Pokemon's information
-import type { Pokemon } from '../types/pokemon';
+import type { Pokemon } from '../../../types/pokemon';
 import { PokemonProfileHeader } from './PokemonProfileHeader';
 import { TypeClassificationTag } from './TypeClassificationTag';
 import { BaseStatsBlock } from './BaseStatsBlock';
 import { AbilityRoleTag } from './AbilityRoleTag';
 import { LoreDetailsCard } from './LoreDetailsCard';
-import { usePokemonSpecies } from '../hooks/usePokemonSpecies';
+import { usePokemonSpecies } from '../../../hooks/usePokemonSpecies';
 
 interface PokemonCardProps {
   pokemon: Pokemon;

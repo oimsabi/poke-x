@@ -1,5 +1,5 @@
-import type { PokemonType } from '../types/pokemon';
-import { getTypeColorClasses } from '../utils/typeColors';
+import type { PokemonType } from '../../../types/pokemon';
+import { getTypeColorClasses } from '../../../utils/typeColors';
 
 interface TypeClassificationTagProps {
   types: PokemonType[];

@@ -11,7 +11,6 @@ interface UsePokemonListResult {
   data: PokemonListResponse | null;
   results: PokemonListItem[];
   loading: boolean;
-  primaryTypes: string[];
   error: string | null;
   total: number;
   next: string | null;
@@ -67,7 +66,6 @@ export const usePokemonList = (
     results,
     loading,
     error,
-    primaryTypes: results.map((item) => item.primaryType).filter((type): type is string => type !== undefined),
     total: data?.count ?? 0,
     next: data?.next ?? null,
     previous: data?.previous ?? null,

@@ -105,9 +105,10 @@ export interface NamedResource {
   
   // For Pokemon list endpoint
   export interface PokemonListItem {
+    id: number;
     name: string;
     url: string;
-    types: PokemonType[];
+    types?: PokemonType[];
   }
   
   export interface PokemonListResponse {
